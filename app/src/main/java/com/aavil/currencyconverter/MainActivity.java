@@ -12,18 +12,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void convert(View view) {
 
+        String message = "";
+
         EditText dollarField = (EditText) findViewById(R.id.dollarsField);
 
+        if (dollarField.getText().toString().isEmpty()) {
 
-        Double dollarAmount = Double.parseDouble(dollarField.getText().toString());
+            message = "Please enter an amount";
+        } else {
 
-        Double poundAmount = dollarAmount * 0.65;
+            Double dollarAmount = Double.parseDouble(dollarField.getText().toString());
 
-       // Log.i("dollarField", poundAmount.toString());
+            Double poundAmount = dollarAmount * 0.65;
 
-        Toast.makeText(getApplicationContext(), "$" + poundAmount.toString(), Toast.LENGTH_LONG).show();
+            // Log.i("dollarField", poundAmount.toString());
+
+            Toast.makeText(getApplicationContext(), "$" + poundAmount.toString(), Toast.LENGTH_LONG).show();
+        }
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
